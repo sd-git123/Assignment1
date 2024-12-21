@@ -1,0 +1,251 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    background: url('background-image.jpg') no-repeat center center fixed; /* Add background image */
+    background-size: cover; /* Ensure background covers the full screen */
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center; /* Center everything inside the header */
+    align-items: center;
+    flex-direction: column; /* Stack logo and navigation vertically */
+    text-align: center;
+}
+
+
+header .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 1rem; /* Adds spacing between the logo and nav */
+}
+
+nav ul {
+    list-style-type: none; 
+    display: flex;                /* Turns the <ul> into a flex container */
+    justify-content: center;     /* Aligns the <ul> items to the right */
+    margin: 0;
+    padding: 0;
+    align-items: center;          /* Centers items vertically */
+    text-align: center;  
+}
+
+nav ul li {
+    text-align: center;            /* Ensures the text inside each <li> is centered */
+    padding: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Bio-Data Section Styles */
+.biodata {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+}
+
+.biodata h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.biodata h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 0.5rem;
+}
+
+.biodata p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    line-height: 1.8;
+}
+
+.biodata ul {
+    list-style: none;
+    padding: 0;
+}
+
+.biodata ul li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.biodata button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 2rem auto 0;
+}
+
+.biodata button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Editable Fields */
+.editable-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc; /* Updated border style */
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.editable-input:focus {
+    border-color: #007bff; /* Focus color */
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Editable Section */
+.editable-section {
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    border-radius: 12px;
+    padding: 3rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.editable-section.expand {
+    width: 110%;
+    padding: 3.5rem;
+    margin-top: 2.5rem;
+}
+
+.editable-section input,
+.editable-section select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc; /* Updated border */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.editable-section input:focus,
+.editable-section select:focus {
+    border-color: #007bff; /* Focus border color */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Style adjustments for buttons */
+#saveChanges {
+    width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem 0;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 2rem;
+}
+
+#saveChanges:hover {
+    background-color: #2980b9;
+}
+
+/* General Styles for Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc; /* Changed border to match resume style */
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Focus border color matches resume */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Adjusted Editable Section */
+.editable-section input,
+.editable-section select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.editable-section input:focus,
+.editable-section select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Styling for Textareas */
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}

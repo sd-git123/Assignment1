@@ -1,0 +1,297 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center; /* Center everything inside the header */
+    align-items: center;
+    flex-direction: column; /* Stack logo and navigation vertically */
+    text-align: center;
+}
+
+header .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 1rem; 
+    text-align:center;
+    justify-content:center;/* Adds spacing between the logo and nav */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;                /* Turns the <ul> into a flex container */
+    justify-content: center; 
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://images.unsplash.com/photo-1531497865146-868e6edcd9c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600') no-repeat center center/cover;
+    height: 100vh;
+    position: relative;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons .btn {
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    background-color: #ffcc00;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-right: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta-buttons .btn:hover {
+    background-color: #e6b800;
+    transform: translateY(-3px);
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    color: #333;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Skills Section */
+.skills {
+    background-color: #f4f7f9;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.skill-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+}
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+    color: #4a90e2;
+}
+
+/* Bio-Data Section Styles */
+.biodata {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+}
+
+.biodata h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.biodata h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 0.5rem;
+}
+
+.biodata p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    line-height: 1.8;
+}
+
+.biodata ul {
+    list-style: none;
+    padding: 0;
+}
+
+.biodata ul li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.biodata button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 2rem auto 0;
+}
+
+.biodata button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Editable Fields */
+.editable-input {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 2px solid #2980b9;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    background-color: #f4f7f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.editable-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.5);
+}
+
+/* Editable Section */
+.editable-section {
+    background-color: #ffffff;
+    border: 2px solid #3498db;
+    border-radius: 12px;
+    padding: 3rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.editable-section.expand {
+    width: 110%;
+    padding: 3.5rem;
+    margin-top: 2.5rem;
+}
+
+.editable-section input,
+.editable-section select {
+    width: 100%;
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    background-color: #f4f7f9;
+}
+
+.editable-section input:focus,
+.editable-section select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 8px rgba(41, 128, 185, 0.5);
+}
+/* Bio-Data Section Button Styles */
+.biodata button {
+    background-color: #ffcc00; /* Yellow background similar to the Resume button */
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px; /* Rounded corners */
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 2rem auto 0; /* Centers the button */
+}
+
+.biodata button:hover {
+    background-color: #e6b800; /* Slightly darker yellow on hover */
+    transform: translateY(-3px); /* Adds a lift effect on hover */
+}
