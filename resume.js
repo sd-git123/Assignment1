@@ -2,104 +2,147 @@ document.addEventListener('DOMContentLoaded', () => {
     const resumeSection = document.querySelector('.resume-card');
     const editButton = document.getElementById('editDetails');
 
-    // Function to switch to edit mode
-    function switchToEditMode() {
-        const nameDisplay = document.getElementById('name-display').textContent;
-        const summaryDisplay = document.getElementById('summary-display').textContent;
+    // Load saved data from localStorage
+    function loadSavedData() {
+        const savedData = JSON.parse(localStorage.getItem('resume')) || {
+            name: "John Doe",
+            email: "john.doe@example.com",
+            phone: "+123 456 7890",
+            linkedin: "linkedin.com/in/johndoe",
+            github: "github.com/johndoe",
+            summary: "A highly motivated software engineer...",
+            experience: "Software Engineer - ABC Corporation...",
+            education: "Bachelor of Science in Computer Science...",
+            skills: "Programming: JavaScript, Python...",
+            projects: "E-Commerce Platform...",
+            certifications: "AWS Certified Solutions Architect...",
+            achievements: "Winner of the National Hackathon...",
+            references: "Jane Smith - Senior Manager..."
+        };
 
+        renderViewMode(savedData);
+    }
+
+    // Render view mode
+    function renderViewMode(data) {
+        const viewContent = `
+            <h1>Resume</h1>
+            <h2>Personal Details</h2>
+            <p><strong>Name:</strong> <span id="name-display">${data.name}</span></p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Phone:</strong> ${data.phone}</p>
+            <p><strong>LinkedIn:</strong> <a href="${data.linkedin}" target="_blank">${data.linkedin}</a></p>
+            <p><strong>GitHub:</strong> <a href="${data.github}" target="_blank">${data.github}</a></p>
+
+            <h2>Professional Summary</h2>
+            <p id="summary-display">${data.summary}</p>
+
+            <h2>Work Experience</h2>
+            <p id="experience-display">${data.experience}</p>
+
+            <h2>Education</h2>
+            <p id="education-display">${data.education}</p>
+
+            <h2>Skills</h2>
+            <p id="skills-display">${data.skills}</p>
+
+            <h2>Projects</h2>
+            <p id="projects-display">${data.projects}</p>
+
+            <h2>Certifications</h2>
+            <p id="certifications-display">${data.certifications}</p>
+
+            <h2>Achievements</h2>
+            <p id="achievements-display">${data.achievements}</p>
+
+            <h2>References</h2>
+            <p id="references-display">${data.references}</p>
+
+            <button id="editDetails" class="button">Edit Resume</button>
+        `;
+        resumeSection.innerHTML = viewContent;
+
+        const editButton = document.getElementById('editDetails');
+        editButton.addEventListener('click', () => switchToEditMode(data));
+    }
+
+    // Switch to edit mode
+    function switchToEditMode(data) {
         const editableContent = `
             <h1>Resume</h1>
 
             <h2>Personal Details</h2>
             <label>Name:</label>
-            <input type="text" value="${nameDisplay}" id="name" /><br>
+            <input type="text" value="${data.name}" id="name" /><br>
 
             <label>Email:</label>
-            <input type="email" value="john.doe@example.com" id="email" /><br>
+            <input type="email" value="${data.email}" id="email" /><br>
 
             <label>Phone:</label>
-            <input type="tel" value="+123 456 7890" id="phone" /><br>
+            <input type="tel" value="${data.phone}" id="phone" /><br>
 
             <label>LinkedIn:</label>
-            <input type="url" value="linkedin.com/in/johndoe" id="linkedin" /><br>
+            <input type="url" value="${data.linkedin}" id="linkedin" /><br>
 
             <label>GitHub:</label>
-            <input type="url" value="github.com/johndoe" id="github" /><br>
+            <input type="url" value="${data.github}" id="github" /><br>
 
             <h2>Professional Summary</h2>
-            <textarea id="summary">${summaryDisplay}</textarea>
+            <textarea id="summary">${data.summary}</textarea>
 
             <h2>Work Experience</h2>
-            <textarea id="experience">Software Engineer - ABC Corporation...</textarea>
+            <textarea id="experience">${data.experience}</textarea>
 
             <h2>Education</h2>
-            <textarea id="education">Bachelor of Science in Computer Science...</textarea>
+            <textarea id="education">${data.education}</textarea>
 
             <h2>Skills</h2>
-            <textarea id="skills">Programming: JavaScript, Python...</textarea>
+            <textarea id="skills">${data.skills}</textarea>
 
             <h2>Projects</h2>
-            <textarea id="projects">E-Commerce Platform...</textarea>
+            <textarea id="projects">${data.projects}</textarea>
 
             <h2>Certifications</h2>
-            <textarea id="certifications">AWS Certified Solutions Architect...</textarea>
+            <textarea id="certifications">${data.certifications}</textarea>
 
             <h2>Achievements</h2>
-            <textarea id="achievements">Winner of the National Hackathon...</textarea>
+            <textarea id="achievements">${data.achievements}</textarea>
 
             <h2>References</h2>
-            <textarea id="references">Jane Smith - Senior Manager...</textarea>
+            <textarea id="references">${data.references}</textarea>
 
             <button id="saveDetails" class="button">Save Resume</button>
         `;
         resumeSection.innerHTML = editableContent;
 
         const saveButton = document.getElementById('saveDetails');
-        saveButton.addEventListener('click', switchToViewMode);
+        saveButton.addEventListener('click', saveDetails);
     }
 
-    // Function to switch to view mode and save changes
-    function switchToViewMode() {
-        const updatedContent = `
-            <h1>Resume</h1>
-            <h2>Personal Details</h2>
-            <p><strong>Name:</strong> <span id="name-display">${document.getElementById('name').value}</span></p>
-            <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
-            <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
-            <p><strong>LinkedIn:</strong> <a href="${document.getElementById('linkedin').value}" target="_blank">${document.getElementById('linkedin').value}</a></p>
-            <p><strong>GitHub:</strong> <a href="${document.getElementById('github').value}" target="_blank">${document.getElementById('github').value}</a></p>
+    // Save details and update view mode
+    function saveDetails() {
+        const updatedData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            linkedin: document.getElementById('linkedin').value,
+            github: document.getElementById('github').value,
+            summary: document.getElementById('summary').value,
+            experience: document.getElementById('experience').value,
+            education: document.getElementById('education').value,
+            skills: document.getElementById('skills').value,
+            projects: document.getElementById('projects').value,
+            certifications: document.getElementById('certifications').value,
+            achievements: document.getElementById('achievements').value,
+            references: document.getElementById('references').value
+        };
 
-            <h2>Professional Summary</h2>
-            <p id="summary-display">${document.getElementById('summary').value}</p>
+        // Save to localStorage
+        localStorage.setItem('resume', JSON.stringify(updatedData));
 
-            <h2>Work Experience</h2>
-            <p id="experience-display">${document.getElementById('experience').value}</p>
-
-            <h2>Education</h2>
-            <p id="education-display">${document.getElementById('education').value}</p>
-
-            <h2>Skills</h2>
-            <p id="skills-display">${document.getElementById('skills').value}</p>
-
-            <h2>Projects</h2>
-            <p id="projects-display">${document.getElementById('projects').value}</p>
-
-            <h2>Certifications</h2>
-            <p id="certifications-display">${document.getElementById('certifications').value}</p>
-
-            <h2>Achievements</h2>
-            <p id="achievements-display">${document.getElementById('achievements').value}</p>
-
-            <h2>References</h2>
-            <p id="references-display">${document.getElementById('references').value}</p>
-
-            <button id="editDetails" class="button">Edit Resume</button>
-        `;
-        resumeSection.innerHTML = updatedContent;
-        
-        const editButton = document.getElementById('editDetails');
-        editButton.addEventListener('click', switchToEditMode);
+        renderViewMode(updatedData);
     }
 
-    editButton.addEventListener('click', switchToEditMode);
+    // Load saved data on page load
+    loadSavedData();
 });
